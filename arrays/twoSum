@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> mp;
+
+        for(int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+
+            if(mp.find(complement) != mp.end()) {
+                return {mp[complement], i};
+            }
+
+            mp[nums[i]] = i;
+        }
+
+        return {};
+    }
+};
+
+
+//Two Sum
+
+   // ## Problem
+    //Given an array of integers and a target, return the indices of two numbers whose sum equals the target.
+
+   // ## Approach
+    //- Use a Hash Map.
+    //- Store value -> index.
+    //- For each element:
+   //     - Calculate complement = target - current element.
+     //   - If complement exists in the map, return the answer.
+      //  - Otherwise store the current element.
+
+    //## Complexity
+
+    //Time: O(n)
+
+   // Space: O(n)//
